@@ -1,0 +1,1 @@
+This is a follow-up project, that is a sinatra-app, of the hangman project which can be played in terminal.
