@@ -8,7 +8,7 @@ class Hangman
   end
 
   def create_secret_code
-    dictionary = File.readlines("5desk.txt")
+    dictionary = File.readlines("lib/5desk.txt")
     sample_word = dictionary.sample.strip
     until sample_word.length.between?(5, 12)
       sample_word = dictionary.sample.strip
