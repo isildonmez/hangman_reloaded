@@ -7,11 +7,11 @@
     <p>
       <%= message %></br>
       <%= wrong_guesses %></br>
-      <%= visualised_word %></br>
       <%= guesses_remain %></br>
+      <%= visualised_word %></br>
       <%= image_path %></br>
     </p>
-    <form>
+    <form action='/guess' method='POST'>
       <input type='text' name='guess'/>
       <input type='submit' value='Guess!'/></br>
 <!--       <input type='submit' value='RESET THE GAME!'/>

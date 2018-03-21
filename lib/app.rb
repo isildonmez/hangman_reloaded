@@ -13,12 +13,13 @@ get '/' do
   unless session["hangman"]
     session["hangman"] = Hangman.new
   end
-  @hangman = session["hangman"]
   erb :index
 end
 
 post '/guess' do
-  if @hangman.game_over
+  @hangman = session["hangman"]
+  if @hangman.game_over?
+    session.clear
     redirect "/"
   else
     guess = params[:guess]
@@ -29,7 +30,8 @@ post '/guess' do
     image_path = ""
 
     if @hangman.valid?(guess)
-      message = @hangman.game_over ? @hangman.end_of_game : ""
+      @hangman.analyse(guess)
+      message = @hangman.game_over? ? @hangman.end_of_game : ""
       guesses_remain = @hangman.feedback_of_how_many_guesses_remain
       wrong_guesses = @hangman.feedback_of_wrong_guesses
       visualised_word = @hangman.visualise_the_word
@@ -47,5 +49,5 @@ end
 
 post '/reset' do
   session.clear
-  redirect "/"
+  redirect '/'
 end
