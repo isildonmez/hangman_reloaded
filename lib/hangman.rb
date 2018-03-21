@@ -1,10 +1,11 @@
 class Hangman
-  attr_accessor :mistaken_letters, :right_guesses
+  attr_accessor :mistaken_letters, :right_guesses, :message
   attr_reader :secret_word
   def initialize()
     @mistaken_letters = []
-    @right_guesses = " "
+    @right_guesses = ""
     @secret_word = create_secret_code
+    @message = ""
   end
 
   def create_secret_code
