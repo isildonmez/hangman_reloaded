@@ -1,10 +1,11 @@
 class Hangman
-  attr_accessor :mistaken_letters, :right_guesses
+  attr_accessor :mistaken_letters, :right_guesses, :visualised_word
   attr_reader :secret_word
   def initialize()
     @mistaken_letters = []
     @right_guesses = " "
     @secret_word = create_secret_code
+    @visualised_word = visualise_the_word
   end
 
   def create_secret_code
@@ -70,6 +71,16 @@ class Hangman
       when 5
       when 6
     end
+  end
+
+  def game_over?
+    return true if (@mistaken_letters.size == 6) || (@visualised_word == @secret_word)
+    false
+  end
+
+  def end_of_game
+    return "Game over. The secret word was #{@secret_word.upcase}." if @mistaken_letters.size == 6
+    return "Congratulations!" if @visualised_word == @secret_word
   end
 
 end
