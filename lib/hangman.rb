@@ -1,11 +1,10 @@
 class Hangman
-  attr_accessor :mistaken_letters, :right_guesses, :message
+  attr_accessor :mistaken_letters, :right_guesses
   attr_reader :secret_word
   def initialize()
     @mistaken_letters = []
-    @right_guesses = ""
+    @right_guesses = " "
     @secret_word = create_secret_code
-    @message = ""
   end
 
   def create_secret_code
@@ -15,15 +14,6 @@ class Hangman
       sample_word = dictionary.sample.strip
     end
     sample_word
-  end
-
-  def usable_guess?(guess)
-    if valid?(guess)
-      analyse
-      return true
-    else
-      return false
-    end
   end
 
   def valid?(guess)
@@ -80,10 +70,6 @@ class Hangman
       when 5
       when 6
     end
-  end
-
-  def self.reset
-    Hangman.new
   end
 
 end
