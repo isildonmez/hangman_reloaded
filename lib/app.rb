@@ -35,7 +35,8 @@ post '/guess' do
       guesses_remain = @hangman.feedback_of_how_many_guesses_remain
       wrong_guesses = @hangman.feedback_of_wrong_guesses
       visualised_word = @hangman.visualise_the_word
-      image_path = ""
+      image_path = @hangman.draw_a_hangman
+      puts "image_path #{image_path}"
     else
       message = "Please enter a valid letter"
     end

@@ -61,16 +61,8 @@ class Hangman
     @secret_word.tr("^#{@right_guesses}", "-")
   end
 
-  # TODO: with images
   def draw_a_hangman
-    case @mistaken_letters.size
-      when 1
-      when 2
-      when 3
-      when 4
-      when 5
-      when 6
-    end
+    return "/#{@mistaken_letters.size}..png"
   end
 
   def game_over?
