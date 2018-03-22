@@ -32,6 +32,7 @@ post '/guess' do
     if @hangman.valid?(guess)
       @hangman.analyse(guess)
       message = @hangman.game_over? ? @hangman.end_of_game : ""
+      message = "<strong>#{message}</strong>"
       guesses_remain = @hangman.feedback_of_how_many_guesses_remain
       wrong_guesses = @hangman.feedback_of_wrong_guesses
       visualised_word = @hangman.visualise_the_word

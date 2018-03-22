@@ -66,12 +66,14 @@ class Hangman
   end
 
   def game_over?
+    @visualised_word = visualise_the_word
     return true if (@mistaken_letters.size == 6)
     return true if (@visualised_word == @secret_word)
     false
   end
 
   def end_of_game
+    @visualised_word = visualise_the_word
     return "Game over. The secret word was #{@secret_word.upcase}." if @mistaken_letters.size == 6
     return "Congratulations!" if @visualised_word == @secret_word
   end
