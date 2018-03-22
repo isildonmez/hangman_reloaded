@@ -7,14 +7,16 @@
     <p>
       <%= message %></br>
       <%= wrong_guesses %></br>
-      <%= guesses_remain %></br>
-      <%= visualised_word %></br>
-      <img src='<%= image_path %>' alt='picture'/>
+      <%= guesses_remain %></br></br>
+      <%= visualised_word %></br></br>
+      <img src='<%= image_path %>' width= '400' height='400' alt='picture'/>
     </p>
     <form action='/guess' method='POST'>
       <input type='text' name='guess'/>
       <input type='submit' value='Guess!'/></br>
-<!--       <input type='submit' value='RESET THE GAME!'/>
- -->    </form>
+   </form>
+   <form action='/reset' method='POST'>
+      <input type='submit' value='Reset'/></br>
+   </form>
   </body>
-</html>alt
+</html>

@@ -66,7 +66,8 @@ class Hangman
   end
 
   def game_over?
-    return true if (@mistaken_letters.size == 6) || (@visualised_word == @secret_word)
+    return true if (@mistaken_letters.size == 6)
+    return true if (@visualised_word == @secret_word)
     false
   end
 
