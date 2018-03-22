@@ -14,7 +14,7 @@ class Hangman
     until sample_word.length.between?(5, 12)
       sample_word = dictionary.sample.strip
     end
-    sample_word
+    sample_word.downcase
   end
 
   def valid?(guess)
